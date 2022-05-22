@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        let theme = sessionStorage.getItem('theme');
+        if (theme === "light") {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else if (theme === "beige") {
+            document.documentElement.setAttribute('data-theme', 'beige');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo/Notes</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="sidebar">
+            <div class="header">
+                ✦&nbsp;&nbsp; to-do to-day
+            </div>
+            <div class="todos-sidebar">
+                <ul id="todos-sidebar">
+                    <p class="heading">✓&nbsp;&nbsp;To-do:<button style="float: right" onclick="addTodo()">+</button>
+                    </p>
+                    <li>Personal</li>
+                    <li>Work</li>
+                </ul>
+            </div>
+            <div class="notes-sidebar">
+                <ul id="notes-sidebar">
+                    <p class="heading">✐&nbsp;&nbsp;Notes:<button style="float: right" onclick="addNote()">+</button>
+                    </p>
+                    <li>Example</li>
+                </ul>
+            </div>
+            <div class="themes-sidebar">
+                <ul>
+                    <p class="heading">✿&nbsp;&nbsp;Themes:</p>
+                    <li onclick="toggleLight()"><span class="dot" style="background-color: rgb(247, 247, 255);"></span>Light</li>
+                    <li onclick="toggleBeige()"><span class="dot" style="background-color: rgb(218, 192, 157);"></span>Beige</li>
+                    <li onclick="toggleWine()"><span class="dot" style="background-color: #43202c;"></span>Wine</li>
+                    <li onclick="toggleMidnight()"><span class="dot" style="background-color: black;"></span>Midnight</li>
+                </ul>
+            </div>
+        </div>
+        <main class="notebook">
+            <section class="paper">
+                <div class="first-page">
+                    <span class="todoHeader">Today</span>
+                    <span class="todoHeader" id="current-date" style="float: right;"></span>
+                    <hr>
+                    <div class="for-box-shadow">
+                    <form id="form">
+                        <input 
+                            name="name"
+                            type="text" 
+                            id="input" 
+                            class="input" 
+                            placeholder="Get stuff done... ✎"
+                            autocomplete="off" 
+                        />
+                    </form>
+                    <ul class="todos" id="todos">
+                    </ul>
+                    </div>
+                </div>
+                <div class="second-page">
+                    <span class="todoHeader">Completed</span>
+                    <button style="float: right" onclick="trash()">🗑</button>
+                    <hr>
+                    <div class="for-box-shadow">
+                        <ul class="todos" id="completed">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="index.js"></script>
+    <script src="lightdark.js"></script>
+</body>
+
+</html>

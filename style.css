@@ -1,0 +1,245 @@
+html,
+html[data-theme="light"] {
+    --website-bg: rgb(235, 236, 243);
+    --horizontal-line: rgb(218, 220, 235);
+    --logo-header: rgb(58, 35, 208);
+    --heading: rgb(55, 80, 207);
+    --list-border: rgba(125, 126, 207, 0.432);
+    --notebook-cover: rgb(55, 80, 207);
+    --notebook-paper: rgb(247, 247, 255);
+    --font-color: rgb(32, 30, 66);
+    --form-box-shadow: rgba(132, 125, 207, 0.383);
+    --form-entry: white;
+    --greyed: rgb(160, 160, 160);
+    --hover-color: white;
+    --button-text-color: white;
+}
+
+html[data-theme="midnight"] {
+    --website-bg: rgb(0, 0, 0);
+    --horizontal-line: rgb(218, 220, 235);
+    --logo-header: rgb(255, 255, 255);
+    --heading: rgb(255, 255, 255);
+    --list-border: rgba(215, 215, 215, 0.432);
+    --notebook-cover: rgb(39, 39, 39);
+    --notebook-paper: rgb(83, 83, 83);
+    --font-color: rgb(255, 255, 255);
+    --form-box-shadow: rgba(48, 48, 48, 0.383);
+    --form-entry: rgb(152, 152, 152);
+    --greyed: rgb(91, 91, 91);
+    --hover-color: white;
+    --button-text-color: white;
+}
+
+html[data-theme="beige"] {
+    --website-bg: rgb(248, 244, 235);
+    --horizontal-line: rgb(238, 231, 211);
+    --logo-header: rgb(198, 161, 112);
+    --heading: rgb(169, 124, 66);
+    --list-border: rgba(207, 172, 125, 0.432);
+    --notebook-cover: rgb(218, 192, 157);
+    --notebook-paper: rgb(253, 251, 243);
+    --font-color: rgb(87, 77, 62);
+    --form-box-shadow: rgba(207, 172, 125, 0.383);
+    --form-entry: white;
+    --greyed: rgb(160, 160, 160);
+    --hover-color: rgb(87, 77, 62);
+    --button-text-color: rgb(87, 77, 62);
+}
+
+html[data-theme="wine"] {
+    --website-bg: #371722;
+    --horizontal-line: #bbab9b;
+    --logo-header: #bbab9b;
+    --heading: #bbab9b;
+    --list-border: rgba(147, 96, 110, 0.546);
+    --notebook-cover: #2a0a15;
+    --notebook-paper: #43202c;
+    --font-color: #bbab9b;
+    --form-box-shadow: #461f2c;
+    --form-entry: #572839;
+    --greyed: rgb(148, 114, 128);
+    --hover-color: rgba(147, 96, 110, 0.546);
+    --button-text-color: #bbab9b;
+}
+
+* {
+    transition: background-color 0.07s, border-top 0.07s, box-shadow 0.07s;
+}
+
+body {
+    background-color: var(--website-bg);
+    color: var(--font-color);
+}
+
+hr {
+    height: 2px;
+    background-color: var(--horizontal-line);
+    border: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    grid-gap: 4rem;
+}
+
+.sidebar {
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.heading {
+    font-family: "Georgia", serif;
+    color: var(--heading);
+    font-weight: bold;
+}
+
+.header {
+    font-family: "Georgia", serif;
+    color: var(--logo-header);
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+    border-top: 1px solid var(--list-border);
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+}
+
+li:hover {
+    background-color: var(--notebook-cover);
+    color: var(--hover-color);
+}
+
+li.completed {
+    text-decoration: line-through;
+}
+
+.first-page {
+    font-family: "Helvetica", sans-serif;
+    padding: auto;
+    margin: 1.5rem;
+}
+
+.second-page {
+    font-family: "Helvetica", sans-serif;
+    padding: auto;
+    margin: 1.5rem;
+}
+
+.paper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    background-color: var(--notebook-paper);
+    width: 68vw;
+    height: 86.5vh;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    border-radius: 6px;
+}
+
+.notebook {
+    font-size: 1rem;
+    background-color: var(--notebook-cover);
+    width: 70vw;
+    height: 90vh;
+    margin: 3vh;
+    word-wrap: break-word;
+    border-radius: 9px;
+}
+
+div.for-box-shadow {
+    box-shadow: 0 10px 20px var(--form-box-shadow);
+}
+
+form {
+    width: 100%;
+    background-color: var(--form-entry);
+}
+
+.input {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    background-color: var(--form-entry);
+    color: var(--font-color);
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border: none;
+    width: 80%;
+}
+
+.input::placeholder {
+    color: var(--logo-header);
+}
+
+input:focus,
+textarea {
+    outline: none !important;
+}
+
+.todos {
+    background-color: var(--form-entry);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.todos li {
+    cursor: pointer;
+    border-top: 1px solid var(--list-border);
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+}
+
+.todos li.completed {
+    color: var(--greyed);
+}
+
+button {
+    color: var(--button-text-color);
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--notebook-cover);
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: var(--logo-header);
+    color: var(--hover-color);
+}
+
+span.todoHeader {
+    font-weight: bold;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+.text {
+    cursor: text;
+}
+
+input {
+    margin-right: 10px;
+}
+
+.dot {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 1em;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid var(--list-border);
+}
