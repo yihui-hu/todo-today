@@ -15,7 +15,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Todo/Notes</title>
+    <title>Todo Today</title>
 </head>
 
 <body>
@@ -26,26 +26,47 @@
             </div>
             <div class="todos-sidebar">
                 <ul id="todos-sidebar">
-                    <p class="heading">✓&nbsp;&nbsp;To-do:<button style="float: right" onclick="addTodo()">+</button>
+                    <p class="heading">✓&nbsp;&nbsp;To-do:
+                        <!-- <button style="float: right" onclick="addTodo()">+</button> -->
                     </p>
-                    <li>Personal</li>
-                    <li>Work</li>
+                    <li onclick="togglePersonal()">Personal</li>
+                    <li onclick="toggleWork()">Work</li>
                 </ul>
             </div>
             <div class="notes-sidebar">
                 <ul id="notes-sidebar">
-                    <p class="heading">✐&nbsp;&nbsp;Notes:<button style="float: right" onclick="addNote()">+</button>
+                    <p class="heading">✐&nbsp;&nbsp;Notes:
+                        <!-- <button style="float: right" onclick="addNote()">+</button> -->
                     </p>
-                    <li>Example</li>
+                    <li>Work In Progress</li>
                 </ul>
             </div>
+            <!-- <div class="introduction">
+                <ul>
+                    <p class="heading">ⓘ&nbsp;&nbsp;About:</p>
+                    <hr>
+                    <p>A super simple to-do app to track your most important tasks.</p>
+                </ul>
+            </div> -->
             <div class="themes-sidebar">
                 <ul>
                     <p class="heading">✿&nbsp;&nbsp;Themes:</p>
-                    <li onclick="toggleLight()"><span class="dot" style="background-color: rgb(247, 247, 255);"></span>Light</li>
-                    <li onclick="toggleBeige()"><span class="dot" style="background-color: rgb(218, 192, 157);"></span>Beige</li>
-                    <li onclick="toggleWine()"><span class="dot" style="background-color: #43202c;"></span>Wine</li>
-                    <li onclick="toggleMidnight()"><span class="dot" style="background-color: black;"></span>Midnight</li>
+                    <li onclick="toggleLight()">
+                        <!-- <span class="dot" style="background-color: rgb(247, 247, 255);"></span> -->
+                        Light
+                    </li>
+                    <li onclick="toggleBeige()">
+                        <!-- <span class="dot" style="background-color: rgb(218, 192, 157);"></span> -->
+                        Beige
+                    </li>
+                    <li onclick="toggleWine()">
+                        <!-- <span class="dot" style="background-color: #43202c;"></span> -->
+                        Wine
+                    </li>
+                    <li onclick="toggleMidnight()">
+                        <!-- <span class="dot" style="background-color: black;"></span> -->
+                        Midnight
+                    </li>
                 </ul>
             </div>
         </div>

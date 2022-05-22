@@ -103,6 +103,12 @@ hr {
     margin-top: 2rem;
 }
 
+.introduction {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
 ul {
     list-style-type: none;
 }
