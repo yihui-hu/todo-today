@@ -20,7 +20,7 @@
 
 <body>
     <div class="grid-container">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="header">
                 ✦&nbsp;&nbsp; to-do to-day
             </div>
@@ -29,8 +29,7 @@
                     <p class="heading">✓&nbsp;&nbsp;To-do:
                         <!-- <button style="float: right" onclick="addTodo()">+</button> -->
                     </p>
-                    <li onclick="togglePersonal()">Personal</li>
-                    <li onclick="toggleWork()">Work</li>
+                    <li id="personal">Tasks</li>
                 </ul>
             </div>
             <div class="notes-sidebar">
@@ -38,7 +37,7 @@
                     <p class="heading">✐&nbsp;&nbsp;Notes:
                         <!-- <button style="float: right" onclick="addNote()">+</button> -->
                     </p>
-                    <li>Work In Progress</li>
+                    <li id="notes">Logbook</li>
                 </ul>
             </div>
             <!-- <div class="introduction">
@@ -71,6 +70,47 @@
             </div>
         </div>
         <main class="notebook">
+            <section class="paper" id="personal-todos">
+                <!-- to-do section -->
+                <div class="first-page">
+                    <span class="todoHeader">Today</span>
+                    <span class="todoHeader" id="current-date" style="float: right;"></span>
+                    <hr>
+                    <div class="for-box-shadow">
+                    <form id="form">
+                        <input 
+                            name="name"
+                            type="text" 
+                            id="input" 
+                            class="input" 
+                            placeholder="Get stuff done... ✎"
+                            autocomplete="off" 
+                        />
+                    </form>
+                    <ul class="todos" id="todos">
+                    </ul>
+                    </div>
+                </div>
+                <div class="second-page">
+                    <span class="todoHeader">Completed</span>
+                    <button style="float: right" onclick="trash()">🗑</button>
+                    <hr>
+                    <div class="for-box-shadow">
+                        <ul class="todos" id="completed">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="paper-notes" id="personal-notes">
+                <div class="notesHeader">
+                    <span>Notes</span>
+                    <button style="float: right" class="add-notes">+</button>
+                    <hr>
+                </div>
+                <div id="personal-notes"></div>
+            </section>
+        </main>
+        <!-- <main class="notebook" id="work-notebook">
             <section class="paper">
                 <div class="first-page">
                     <span class="todoHeader">Today</span>
@@ -101,8 +141,9 @@
                     </div>
                 </div>
             </section>
-        </main>
+        </main> -->
     </div>
+    <script src="jquery-3.6.0.min.js"></script>
     <script src="index.js"></script>
     <script src="lightdark.js"></script>
 </body>

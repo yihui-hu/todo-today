@@ -11,6 +11,38 @@ function getDate() {
 
 getDate();
 
+// snippet of jquery for testing?
+
+// $(document).ready(function () {
+//     // hide work notebook on default
+//     $("#work-notebook").hide();
+
+//     $("#personal").click(function () {
+//         $("#personal-notebook").show();
+//         $("#work-notebook").hide();
+//     });
+
+//     $("#work").click(function () {
+//         $("#work-notebook").show();
+//         $("#personal-notebook").hide();
+//     })
+// });
+
+$(document).ready(function () {
+    // hide notes by default
+    $("#personal-notes").hide();
+
+    $("#personal").click(function () {
+        $("#personal-todos").show();
+        $("#personal-notes").hide();
+    });
+
+    $("#notes").click(function () {
+        $("#personal-notes").show();
+        $("#personal-todos").hide();
+    })
+});
+
 // main to-do functionality
 
 const form = document.getElementById("form");
@@ -291,3 +323,71 @@ function addNote() {
 //         completed.appendChild(todoCompleted);
 //     }
 // })
+
+// for notes
+
+const notesContainer = document.getElementById('personal-notes');
+const addNoteButton = notesContainer.querySelector('.add-notes');
+
+addNoteButton.addEventListener("click", () => addNote());
+
+getNotes().forEach(note => {
+    const notesElement = createNoteElement(note.id, note.content);
+    notesContainer.append(notesElement);
+})
+
+function getNotes() {
+    return JSON.parse(localStorage.getItem("notes") || "[]");
+}
+
+function saveNotes(notes) {
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+function createNoteElement(id, content) {
+    const element = document.createElement("textarea");
+
+    element.classList.add("notes");
+    element.value = content;
+    element.placeholder = "Jot something down...";
+    
+    element.addEventListener("change", () => {
+        updateNote(id, element.value);
+    });
+
+    element.addEventListener("dblclick", () => {
+        const doDelete = confirm("Are you sure you wish to delete this note?");
+        if (doDelete) {
+            deleteNote(id, element);
+        }
+    });
+
+    return element;
+}
+
+function addNote() {
+    const existingNotes = getNotes();
+    const noteObject = {
+        id: Math.floor(Math.random() * 100000),
+        content: ""
+    };
+
+    const noteElement = createNoteElement(noteObject.id, noteObject.content);
+    notesContainer.append(noteElement);
+    existingNotes.push(noteObject);
+    saveNotes(existingNotes);
+}
+
+function updateNote(id, newContent) {
+    const notes = getNotes(); 
+    const targetNote = notes.filter(note => note.id == id)[0];
+
+    targetNote.content = newContent;
+    saveNotes(notes);
+}
+
+function deleteNote(id, element) {
+    const notes = getNotes().filter(note => note.id != id);
+    saveNotes(notes);
+    notesContainer.removeChild(element);
+}
