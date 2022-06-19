@@ -15,7 +15,7 @@ html[data-theme="light"] {
     --button-text-color: white;
 }
 
-html[data-theme="midnight"] {
+/* html[data-theme="midnight"] {
     --website-bg: rgb(0, 0, 0);
     --horizontal-line: rgb(218, 220, 235);
     --logo-header: rgb(255, 255, 255);
@@ -29,7 +29,7 @@ html[data-theme="midnight"] {
     --greyed: rgb(91, 91, 91);
     --hover-color: white;
     --button-text-color: white;
-}
+} */
 
 html[data-theme="beige"] {
     --website-bg: rgb(248, 244, 235);
